@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+export interface Todo {
+  completed: boolean;
+  title: string;
+  id?: number;
+}
 
 @Component({
   selector: 'app-vacancies',
@@ -6,10 +13,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vacancies.component.scss']
 })
 export class VacanciesComponent implements OnInit {
+  todos: Todo[] = [];
 
-  constructor() { }
+  constructor(private  http: HttpClient) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.http.get('http://localhost:8079/api/employees').subscribe(todos => {
+      console.log('response', todos);
+    });
   }
 
 }
