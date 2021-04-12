@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { PostsComponent } from './posts/posts.component';
 import { VacanciesComponent } from './vacancies/vacancies.component';
-import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
